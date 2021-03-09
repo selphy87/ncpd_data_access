@@ -53,7 +53,7 @@ $("a.reload").on("click", function(e){
     e.stopImmediatePropagation()
     location.reload()
 });
-$("#fail_div, #tie_div").on("click", "a.reload", function(e){
+$("#fail_div, #tie_div, #win_div").on("click", "a.reload", function(e){
     e.preventDefault();
     e.stopImmediatePropagation()
     location.reload()
