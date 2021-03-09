@@ -42,8 +42,8 @@ $('.killjoy').click(function() {
     
   }
   number_total_games++;
-  console.log("Player Rolled " + playerRoll + " " + array_possibilities[playerRoll-1]);
-  console.log("computer Rolled " + computerRoll + " " + array_possibilities[computerRoll-1]);
+//  console.log("Player Rolled " + playerRoll + " " + array_possibilities[playerRoll-1]);
+//  console.log("computer Rolled " + computerRoll + " " + array_possibilities[computerRoll-1]);
   detectEndGame()
 });//end of rock click
 
@@ -74,8 +74,8 @@ $('.buzzbit').click(function() {
     });
   }
   number_total_games++;
-  console.log("Player Rolled " + playerRoll + " " + array_possibilities[playerRoll-1]);
-  console.log("computer Rolled " + computerRoll + " " + array_possibilities[computerRoll-1]);
+  // console.log("Player Rolled " + playerRoll + " " + array_possibilities[playerRoll-1]);
+  // console.log("computer Rolled " + computerRoll + " " + array_possibilities[computerRoll-1]);
   detectEndGame()
 });//end of paper click
 
@@ -106,8 +106,8 @@ $('.ripnet').click(function() {
     });
   }//end of scissors click
   number_total_games++;
-  console.log("Player Rolled " + playerRoll + " " + array_possibilities[playerRoll-1]);
-  console.log("computer Rolled " + computerRoll + " " + array_possibilities[computerRoll-1]);
+  // console.log("Player Rolled " + playerRoll + " " + array_possibilities[playerRoll-1]);
+  // console.log("computer Rolled " + computerRoll + " " + array_possibilities[computerRoll-1]);
   detectEndGame()
 });
 
@@ -138,8 +138,8 @@ $('.crybaby').click(function() {
     });
   }//end of scissors click
   number_total_games++;
-  console.log("Player Rolled " + playerRoll + " " + array_possibilities[playerRoll-1]);
-  console.log("computer Rolled " + computerRoll + " " + array_possibilities[computerRoll-1]);
+  // console.log("Player Rolled " + playerRoll + " " + array_possibilities[playerRoll-1]);
+  // console.log("computer Rolled " + computerRoll + " " + array_possibilities[computerRoll-1]);
   detectEndGame()
 });
 
@@ -171,8 +171,8 @@ $('.slambang').click(function() {
     });
   }//end of scissors click
   number_total_games++;
-  console.log("Player Rolled " + playerRoll + " " + array_possibilities[playerRoll-1]);
-  console.log("computer Rolled " + computerRoll + " " + array_possibilities[computerRoll-1]);
+  // console.log("Player Rolled " + playerRoll + " " + array_possibilities[playerRoll-1]);
+  // console.log("computer Rolled " + computerRoll + " " + array_possibilities[computerRoll-1]);
 
   detectEndGame()
 });
@@ -216,18 +216,47 @@ var constructLink = function(){
     
   if (code == '' || !code){
     code = getBaseCode()
+    var check = true;
   }
-  if (!files[code]){
+  else {
+    var check = verifyCode()
+  }
+  if (!check || !files[code]){
     $("#win_div .addherelink").html("Error, code not found! <a class='reload' href='#'>Retry!</a>")
     return
   }
  
   var link = files[code]
 //  var link = 'https://drive.google.com/file/d/1xFybwtZd0fcK8elfSzMT9ct8iGQxTGBU/view?usp=sharing'
-  $("#win_div .addherelink").html("Code found! <a target='_blank' href='"+link+"'>1 file matches!</a>")
+  $("#win_div .addherelink").html("Code found! <a target='_blank' href='"+link+"'>1 file matches!</a><br/><br/><a class='reload' href='#'>Go Back</a>")
 
 }
 
 var getBaseCode= function(){
   return env.substr(0,4) + "_" +scope.substr(0,3)+"_01"
+}
+
+var x_alias= ['xan', 'xax']
+var p_alias= ['plc', 'pll', 'pol','pld', 'ppd']
+var m_alias= ['maz', 'maa', 'mze']
+var b_alias= ['bab', 'bwb','bws', 'bww', 'bsw']
+
+var verifyCode = function(){
+  if(env.substr(0,4) != code.substr(0,4)){
+    return false;
+  }
+ // console.log("CODE SUBSTR : ", code.substr(5,3))
+  if(scope=='maze' && m_alias.includes(code.substr(5,3))){
+    return true;
+  }
+  if(scope=='xander' && x_alias.includes(code.substr(5,3))){
+    return true;
+  }
+  if(scope=='babblefish' && b_alias.includes(code.substr(5,3))){
+    return true;
+  }
+  if(scope=='police' && p_alias.includes(code.substr(5,3))){
+    return true;
+  }
+  return false;
 }
