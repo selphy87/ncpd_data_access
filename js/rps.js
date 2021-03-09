@@ -196,17 +196,17 @@ var detectEndGame = function(){
           $(".searching_row").addClass("hidden")
        //   console.log("end game")
           $("#game_div").addClass("hidden")
-          if (playerWin > aiWin){
-            constructLink();
-            $("#win_div").removeClass("hidden")
-          }
-          if (aiWin > playerWin){
-            $("#fail_div").removeClass("hidden")
-          }
-          if (aiWin == playerWin){
-            $("#tie_div").removeClass("hidden")
-          }
-        }, 5000);
+          // if (playerWin > aiWin){
+             constructLink();
+             $("#win_div").removeClass("hidden")
+          // }
+          // if (aiWin > playerWin){
+          //   $("#fail_div").removeClass("hidden")
+          // }
+          // if (aiWin == playerWin){
+          //   $("#tie_div").removeClass("hidden")
+          // }
+        }, 1000);
        // console.log("end game")
         
       }
@@ -214,36 +214,20 @@ var detectEndGame = function(){
 
 var constructLink = function(){
     
-  var arr  = []
   if (code == '' || !code){
-    code = env.substr(0,1) + scope.substr(0,2) + '01'
+    code = getBaseCode()
   }
-  if ((env.substr(0,1) == code.substr(0,1)) && (scope.substr(0,2) == code.substr(1,2))){
-    var dd = files[env]
-    arr = dd[scope]
-  }
-  else {
+  if (!files[code]){
     $("#win_div .addherelink").html("Error, code not found! <a class='reload' href='#'>Retry!</a>")
     return
   }
-  var n = checkCode()
-  if (n >= arr.length){
-    $("#win_div .addherelink").html("Error, code not found! <a class='reload' href='#'>Retry!</a>")
-    return
-  }
-  var link = arr[n]
+ 
+  var link = files[code]
 //  var link = 'https://drive.google.com/file/d/1xFybwtZd0fcK8elfSzMT9ct8iGQxTGBU/view?usp=sharing'
   $("#win_div .addherelink").html("Code found! <a target='_blank' href='"+link+"'>1 file matches!</a>")
 
 }
 
-var checkCode = function(){
-    if(code && !isNaN(parseInt(code.substr(3,2)))){
-      var to_check = parseInt(code.substr(3,2))
-      return to_check -1;
-    }
-    else {
-      return 0;
-    }
-    
+var getBaseCode= function(){
+  return env.substr(0,4) + "_" +scope.substr(0,3)+"_01"
 }

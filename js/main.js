@@ -3,40 +3,49 @@ var scope = false;
 var code = false;
 
 var files = {
-    'clues' : {
-        'maze' : [      'https://drive.google.com/file/d/1oKo1pRgWDfGjw2GGklDhwaC80R8xkjD0/view',
-                        'https://drive.google.com/file/d/1j-bjtiahJralQYRk7KQYchGu5MWQV0S1/view',
-                        'https://drive.google.com/file/d/1QQnv3tfG6n3v1SIJ4TOnHS8gvI6Lj0jB/view'],
-        'xander' : [    'https://drive.google.com/file/d/1F--6SHjQx668XT442zh7odKwx7bd5yIX/view'],
-        'babblefish' : [ 'https://drive.google.com/file/d/1J_x4aeg6ycyhHlFFrHBOvtJIfQrskTIR/view',
-                        'https://drive.google.com/file/d/1oY9V27cuJZQZm3NtpE2IFLCm69G_DG46/view'],
-        'nightcity' : [    'https://drive.google.com/file/d/1Jz4wav5HjkD5JiW00jypk_eZyqFWXchQ/view',
-                        'https://drive.google.com/file/d/1J19XNYBMDyuApQ7zeaPN7kCJWQq0sm41/view',
-                        'https://drive.google.com/file/d/1YC_etOxzpWfO6RlpEO1SJWPA9FdmCt9W/view',
-                        'https://drive.google.com/file/d/1061sFwnsiG0nN0zf7ulO1JrbtrIQynso/view',
-                        'https://drive.google.com/file/d/1cgagMym5qZf-8CNOH175QpUjMtKC2LEM/view',
-                        'https://drive.google.com/file/d/1A1maMDpsWTSixNpjA0ZWAtBMmL5vrjyS/view',
-                        'https://drive.google.com/file/d/1TP6gzVBW7exEZDQ5FZ-kR_JXUrfViKKr/view']
-    }, 
-    'evidence' : {
-        'maze' : [      'https://drive.google.com/file/d/1yfSjdVYrmS3EmuLUrc7VrX2C0Kmd4gi3/view',
-                        'https://drive.google.com/file/d/1ciKzQCojPv10URSbMvPT-1N1Uy_uy_M9/view'],
-        'xander' : [    'https://drive.google.com/file/d/1UPQh9AY5fM9Y0Nn3YXGjX04y3cOh3hmh/view'],
-        'babblefish' : [ 'https://drive.google.com/file/d/1OxC5ahJvT90VG_k_uFFRRih0cX7LxBHe/view'],
-        'nightcity' : [    'https://drive.google.com/file/d/1qdCZeepbyiivn2MpCE-XVX_YoVhNINj-/view',
-                        'https://drive.google.com/file/d/1HBVs0Am2T3xS5iBsqi7U-61rvo7jq-ZK/view',
-                        'https://drive.google.com/file/d/1LbHVVXjWL4Sgf7rAhD9AHfevm2yuF6w4/view',
-                        'https://drive.google.com/file/d/1gOQL7c5GdUVkEuhIg3Wi0RfpxbEgj8QV/view']
-    },
-    'scenario' : {
-        'maze' : [      'https://drive.google.com/file/d/12n6Ftbpzm5TcLVm-s14AU1-R66z81-Ot/view',
-                        'https://drive.google.com/file/d/1Wssnq_aO8tjKIQe08rlZAifg_7mx_ADW/view' ],
-        'xander' : [    'https://drive.google.com/file/d/1lRGUVSRlnHk9nsWgOldi37BTCeNbx3kZ/view',
-                        'https://drive.google.com/file/d/1R7FGJlMpllJq-BMm0V6AGQprKWhgxqll/view'],
-        'babblefish' : [ 'https://drive.google.com/file/d/1DeLgnG5FBCoeLDG-DO4kDr9xcyM51yXe/view',
-                        'https://drive.google.com/file/d/1JgBk-ZJmjuAupOcH7whR5VmmRq7RGr9M/view'],
-        'nightcity' : [    'https://drive.google.com/file/d/1ObjqRHxTgpOXZmDecYPdS8t17RJtSYcR/view']
-    }
+   
+        'evid_bab_02':  'https://drive.google.com/file/d/1x-9JPvVTc2VuPfT-qz9RIYNnbqmq-oYZ/view',
+        'evid_bab_01':  'https://drive.google.com/file/d/11qnqN4YsshM3Vb5qyrKmBOcThipGJjFH/view',
+        'evid_bwb_03':  'https://drive.google.com/file/d/18e7LE6OMphPEGW4g0KOfGixmIuBU1DDT/view',
+        'evid_maz_02':  'https://drive.google.com/file/d/16kRdTQ8HXaFsfXR_FSeLM-1llxM0DWNl/view',
+        'evid_maz_01':  'https://drive.google.com/file/d/1p75FBQA7IVfFjm2TP-N_O44l4KUuzjDX/view',
+        'evid_plc_03':  'https://drive.google.com/file/d/1EwZW7R3XoP6LQVa2tPGigt5sg8vYlYUO/view',
+        'evid_pll_02':  'https://drive.google.com/file/d/1y6xbxWYLRaoLD82IBHn9y801P33zsFWu/view',
+        'evid_pol_01':  'https://drive.google.com/file/d/1-XbA5Pw6sAEmuHE7JxNZdnC6jGvVq5kw/view',
+        'evid_xan_01':  'https://drive.google.com/file/d/1UbwOWWUjeb6uWasZunnM-RUlqi0eqPQ7/view',
+        'evid_xan_02':  'https://drive.google.com/file/d/1gArujBUXbTiev0aySw4ojwk8a_YKy858/view',
+        'evid_xax_03':  'https://drive.google.com/file/d/1NYCb8BN3qeS61zLExqpwxFk7F2EGwulX/view',
+        'indd_bab_02':  'https://drive.google.com/file/d/1O0OYAZCFvj3jMKNyVdk1MIBvHm0b-KW0/view',
+        'clue_bab_01':  'https://drive.google.com/file/d/1Q4EsQR58q8UsBWAoTO9DjYrthi1wI4a5/view',
+        'indd_bwb_03':  'https://drive.google.com/file/d/1vgt-G5BgewhOf3qNv4UfIug69-kv8k3S/view',
+        'indd_bws_04':  'https://drive.google.com/file/d/1hzu6LfTYWXsqdxNeh6-WaA1pLDhP_qXf/view',
+        'indd_bww_05':  'https://drive.google.com/file/d/1SUQ8V-H3UXJsEFc1256Fq2FXyj9kLswP/view',
+        'indd_maa_04':  'https://drive.google.com/file/d/1fVkx2whAG6to0iC6ISxHVppm0VIStcUA/view',
+        'indd_maz_02':  'https://drive.google.com/file/d/1h5CEQ2LMMG7qPviYCfK2HQeJgYKo-mwq/view',
+        'indd_mze_03':  'https://drive.google.com/file/d/1kb5X3JFTKRin6g3RHr92lq-ra8HbdShM/view',
+        'clue_maz_01':  'https://drive.google.com/file/d/1ecgD_rMvsm4un2uSYCUXGw4JUK-7nk4v/view',
+        'indd_plc_03':  'https://drive.google.com/file/d/1sZg2gi_mPZEvTJ9hD3FANswJvYKxSPNf/view',
+        'indd_pld_04':  'https://drive.google.com/file/d/1qOu6XT37-Hp7jHNM2IavfNij12LRcWg2/view',
+        'indd_pll_02':  'https://drive.google.com/file/d/1-hL9z6elngkhI72opUrIFdKOKREUDi69/view',
+        'clue_pol_01':  'https://drive.google.com/file/d/18FRtfrrSS7q79DqjK2QnOdw76En3yFGT/view',
+        'clue_xan_01':  'https://drive.google.com/file/d/1M_m2X84ElKvq-29FYIUgfP-kzmUxlnKE/view',
+        'indd_xan_02':  'https://drive.google.com/file/d/1acYKfv-y69ZgimZ9MUxNafcGFhWe9jOf/view',
+        'indd_xax_03':  'https://drive.google.com/file/d/1ZRm8PlAKq0eIVF7FSnz1UQFU9cTJwLPt/view',
+        'scen_bab_02':  'https://drive.google.com/file/d/1Ubtzc95CLcgmhrX2nBLmCDu3IXr9GUp3/view',
+        'scen_bab_01':  'https://drive.google.com/file/d/1WYr-4O_t_IcV8ziLX9hHzMsQEhk8Pxb0/view',
+        'scen_bwb_03':  'https://drive.google.com/file/d/18bhtTHeyXpqoBccyKDGc988mXgbrQTtG/view',
+        'scen_bsw_04':  'https://drive.google.com/file/d/1wwHxzQo9Pz9vdSZ9EcvNuvkZPdMuPTJl/view',
+        'scen_maz_02':  'https://drive.google.com/file/d/18BLmcMRCJU88VeETc8BXdeDrq_5Evu4S/view',
+        'scen_mze_03':  'https://drive.google.com/file/d/1fIxgfSIw7sih4lrJXoQNl42n4VUiyp4N/view',
+        'scen_maz_01':  'https://drive.google.com/file/d/13v0DeMapJcTIUYlpmjTzF29fQgpFJpWw/view',
+        'scen_plc_03':  'https://drive.google.com/file/d/1f6Qe0QApr-tJGuytH75Crem1Y4QNxPCd/view',
+        'scen_pld_04':  'https://drive.google.com/file/d/1IPaV-Haq0ZlX2gfEAQ-93kOIehyDp46Z/view',
+        'scen_pll_02':  'https://drive.google.com/file/d/125S2prXtHwzhNAoPjIXDKKfTaiT_0lyE/view',
+        'scen_pol_01':  'https://drive.google.com/file/d/1vaMGjG_z5XurY1zpHNvUAF3zhoK94xd5/view',
+        'scen_ppd_05':  'https://drive.google.com/file/d/1QQ-Fg5hjLESXGZ9qcmSAMjyBdCsmbJk6/view',
+        'scen_xan_01':  'https://drive.google.com/file/d/1fpRcCSiTCOT_ETyD2WaQgeMyfrc76xIY/view',
+        'scen_xan_02':  'https://drive.google.com/file/d/11jGmhtFWAdgT23gInrndqlLsZ1s-7z_X/view',
+        'scen_xax_03':  'https://drive.google.com/file/d/1gkcuZ6MQxqrOgwjymzgZN7g3OGQzf2bL/view'
 }
 
 $("a.reload").on("click", function(e){
