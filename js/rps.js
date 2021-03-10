@@ -196,17 +196,17 @@ var detectEndGame = function(){
           $(".searching_row").addClass("hidden")
        //   console.log("end game")
           $("#game_div").addClass("hidden")
-          // if (playerWin > aiWin){
+          if (playerWin > aiWin){
              constructLink();
              $("#win_div").removeClass("hidden")
-          // }
-          // if (aiWin > playerWin){
-          //   $("#fail_div").removeClass("hidden")
-          // }
-          // if (aiWin == playerWin){
-          //   $("#tie_div").removeClass("hidden")
-          // }
-        }, 1000);
+          }
+          if (aiWin > playerWin){
+            $("#fail_div").removeClass("hidden")
+          }
+          if (aiWin == playerWin){
+            $("#tie_div").removeClass("hidden")
+          }
+        }, 4000);
        // console.log("end game")
         
       }
